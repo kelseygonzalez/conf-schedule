@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
  timeZone = document.getElementById('time-zone-selector').value;
   var loadingEl = document.getElementById('loading');
   var calendarEl = document.getElementById('calendar');
-var min_time = moment.utc('2021-05-17 15:00').tz(timeZone).format("hh:mm:ss");
+var min_time = moment.utc('2021-07-07 06:00').tz(timeZone).format("hh:mm:ss");
 
 evnt = {
                 url: "useR2021_tutorials.json", //your url,
@@ -28,29 +28,29 @@ v.end = moment.tz(v.end, timeZone).format();
 views: {
     resourceTimeGridTwoDay: {
       type: 'resourceTimeGrid',
-      duration: { days: 5},
+      duration: { days: 2 },
 visibleRange: {
-    start: '2021-05-17',
-    end: '2021-05-21'
+    start: '2021-07-07',
+    end: '2021-07-08'
   },
       buttonText: 'Time Grid'
     },
 resourceTimelineTwoDay: {
       type: 'resourceTimelineDay',
-      duration: { days: 5},
+      duration: { days: 2 },
 visibleRange: {
-    start: '2021-05-17',
-    end: '2021-05-21'
+    start: '2021-07-07',
+    end: '2021-07-08'
   },
       buttonText: 'Timeline'
     },
 
 timeGridTwoDay: {
       type: 'timeGridDay',
-      duration: { days: 5},
+      duration: { days: 2 },
 visibleRange: {
-    start: '2021-05-17',
-    end: '2021-05-21'
+    start: '2021-07-07',
+    end: '2021-07-08'
   },
       buttonText: 'Day'
     }
@@ -75,7 +75,7 @@ initialDate: '2021-07-07',
 initialView: 'resourceTimeGridTwoDay',
 
 height: "auto",
-        slotDuration: "01:00:00",
+        slotDuration: "00:30:00",
     navLinks: true, // can click day/week names to navigate views
     editable: false,
     selectable: true,
@@ -115,7 +115,7 @@ timeZone: timeZone,
   // when the timezone selector changes, dynamically change the calendar option
   timeZoneSelectorEl.addEventListener('change', function() {
  timeZone = document.getElementById('time-zone-selector').value;
- // min_time = moment.utc('2021-05-17 20:00').tz(timeZone).format("hh:mm:ss");
+ // min_time = moment.utc('2021-07-06 20:00').tz(timeZone).format("hh:mm:ss");
 
 var eventSource = [];
                 eventSource = calendar.getEventSources();

@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var loadingEl = document.getElementById('loading');
   var calendarEl = document.getElementById('calendar');
 evnt = {
-                url: "user2021.json", //your url,
+                url: "useR2021_tutorials.json", //your url,
                 type: "GET",
                 dataType: "json",
                 success: function (data) {
@@ -28,8 +28,8 @@ v.end = moment.tz(v.end, timeZone).format();
       type: 'timeGridWeek',
       //duration: { days: 5 },
 visibleRange: {
-    start: '2021-07-05',
-    end: '2021-07-10'
+    start: '2021-05-017',
+    end: '2021-05-21'
   },
       buttonText: 'Week'
     }
@@ -39,7 +39,7 @@ visibleRange: {
       center: 'title',
       right: 'timeGridUseRWeek,listWeek,dayGridMonth,timeGridDay'
     },
-initialDate: '2021-07-04',
+initialDate: '2021-05-17',
 titleFormat: { // will produce something like "Tuesday, September 18, 2018"
     month: 'long',
     year: 'numeric',

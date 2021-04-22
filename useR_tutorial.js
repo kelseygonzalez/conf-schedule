@@ -3,15 +3,13 @@ document.addEventListener('DOMContentLoaded', function() {
  timeZone = document.getElementById('time-zone-selector').value;
   var loadingEl = document.getElementById('loading');
   var calendarEl = document.getElementById('calendar');
-var min_time = moment.utc('2021-05-17 15:00').tz(timeZone).format("hh:mm:ss");
-
 evnt = {
-                url: "useR2021_tutorials.json", //your url,
+                url: "user2021.json", //your url,
                 type: "GET",
                 dataType: "json",
                 success: function (data) {
                     //based on the dropdown changetimezone of each event 
-//console.log(moment.tz('2021-07-06 07:00', 'America/Los_Angeles').format());
+//console.log(data);
 
                     let updatedTime = [];
                     $.each(data, function( k, v ) {
@@ -25,59 +23,34 @@ v.end = moment.tz(v.end, timeZone).format();
             };
   var calendar = new FullCalendar.Calendar(calendarEl, {
     schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
-views: {
-    resourceTimeGridTwoDay: {
-      type: 'resourceTimeGrid',
-      duration: { days: 5},
+    views: {
+    timeGridUseRWeek: {
+      type: 'timeGridWeek',
+      //duration: { days: 5 },
 visibleRange: {
-    start: '2021-05-17',
-    end: '2021-05-21'
+    start: '2021-07-05',
+    end: '2021-07-10'
   },
-      buttonText: 'Time Grid'
-    },
-resourceTimelineTwoDay: {
-      type: 'resourceTimelineDay',
-      duration: { days: 5},
-visibleRange: {
-    start: '2021-05-17',
-    end: '2021-05-21'
-  },
-      buttonText: 'Timeline'
-    },
-
-timeGridTwoDay: {
-      type: 'timeGridDay',
-      duration: { days: 5},
-visibleRange: {
-    start: '2021-05-17',
-    end: '2021-05-21'
-  },
-      buttonText: 'Day'
+      buttonText: 'Week'
     }
-
-
-  },
+    },
     headerToolbar: {
       left: 'prev,next',
       center: 'title',
-      right: 'resourceTimelineTwoDay,resourceTimeGridTwoDay,timeGridTwoDay'
+      right: 'timeGridUseRWeek,listWeek,dayGridMonth,timeGridDay'
     },
-   resources: [
-	{id: 'Track 1', title: 'Track 1',eventColor: '#3579B1', eventBorderColor:'black'},
-{id: 'Track 2', title: 'Track 2', eventColor: '#FFCD70', eventTextColor:'black', eventBorderColor:'#AD5F00'},
-{id: 'Track 3', title: 'Track 3',   eventColor: '#DDDEDF', eventTextColor:'black', eventBorderColor:'#898D92' },
-{id: 'Track 4', title: 'Track 4',eventColor: '#E72326', eventBorderColor:'#000000'}
-],
-resourceAreaHeaderContent: 'Tracks',
-resourceAreaWidth: '10%',
-initialDate: '2021-07-07',
-//slotMinTime: min_time,
-initialView: 'resourceTimeGridTwoDay',
-
+initialDate: '2021-07-04',
+titleFormat: { // will produce something like "Tuesday, September 18, 2018"
+    month: 'long',
+    year: 'numeric',
+    day: 'numeric'
+  },
+    initialView: 'timeGridUseRWeek',
 height: "auto",
-        slotDuration: "01:00:00",
+        slotDuration: "00:30:00",
+        defaultTimedEventDuration: "00:30:00",
     navLinks: true, // can click day/week names to navigate views
-    editable: false,
+    editable: true,
     selectable: true,
     dayMaxEvents: true, // allow "more" link when too many events
 
@@ -85,16 +58,18 @@ height: "auto",
  eventDidMount: function(info) {
       var tooltip = new Tooltip(info.el, {
         title: info.event.extendedProps.description,
-        placement: 'right',
+        placement: 'top',
         trigger: 'hover',
-	   animation: true, 
-	   html: true,
-	           container: 'body'
+        container: 'body'
       });
     },
+//dayHeaderContent: (args) => {
+//    return moment(args.date).format('dddd Do')
+//},
 
 events: evnt,
 timeZone: timeZone,
+      // events: 'user2021.json',
     loading: function(bool) {
       if (bool) {
         loadingEl.style.display = 'inline'; // show
@@ -115,7 +90,6 @@ timeZone: timeZone,
   // when the timezone selector changes, dynamically change the calendar option
   timeZoneSelectorEl.addEventListener('change', function() {
  timeZone = document.getElementById('time-zone-selector').value;
- // min_time = moment.utc('2021-05-17 20:00').tz(timeZone).format("hh:mm:ss");
 
 var eventSource = [];
                 eventSource = calendar.getEventSources();
@@ -123,7 +97,6 @@ var eventSource = [];
                     value.remove();
                 });
                 calendar.addEventSource(evnt);
-//calendar.setOption('slotMinTime', min_time);
 //console.log(eventSource);
                 calendar.refetchEvents();    //calendar.setOption('events', evnt);
   });

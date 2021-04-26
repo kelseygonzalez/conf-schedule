@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
       var tooltip = new Tooltip(info.el, {
         title: info.event.extendedProps.description,
         placement: 'right',
-        trigger: 'click',
+        trigger: 'hover click',
         animation: true,
         html: true,
         container: 'body'

@@ -265,5 +265,14 @@
     "description": "<b><u>Title<\/u><\/b> <br> Basics of text processing with spaCy<br><br><b><u>Summary<\/u><\/b> <br>In this workshop, we will dive into the basics of spaCy for text processing. spaCy is a free Natural Language Processing Python library developed specifically for production environments.<br>The first part will be dedicated to introducing spaCy and navigating through its documentation. Then, we will work in small groups and code. Using Jupyter notebooks, we will create a pipeline for text tokenization, part-of-speech tagging, parsing, and extractingnamed entities. We will dedicate the last 15 minutes to discussing the advantages of using spaCy and its ecosystem (Prodigy, Thinc, and other tools). <br>If you are interested in following along with the code, this link will provide information including an introduction to Jupyter notebooks: https://tinyurl.com/rb21-spacy<br><br><b><u>Instructors: <\/u><\/b>Damian Romero <br><b><u>Level: <\/u><\/b> Intermediate",
     "start": "2021-05-21T22:00:00Z",
     "end": "2021-05-21T24:00:00Z"
+  },
+   {
+    "textColor": "white",
+    "Id": 324526,
+    "color": "#EA5A2A",
+    "title": "Observable Notebooks for prose, code, and gorgeous visualization on the web",
+    "description": "<b><u>Title<\/u><\/b> <br>Observable Notebooks for prose, code, and gorgeous visualization on the web<br><br><b><u>Summary<\/u><\/b> <br>Forthcoming<br><br><b><u>Instructors: <\/u><\/b>Devin Bayly <br><b><u>Level: <\/u><\/b> Intermediate",
+    "start": "2021-05-21T22:00:00Z",
+    "end": "2021-05-21T24:00:00Z"
   }
 ]
